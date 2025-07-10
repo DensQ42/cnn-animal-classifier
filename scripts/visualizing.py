@@ -489,7 +489,16 @@ def plot_confusion_matrix(model: torch.nn.Module,
             index=target_classes,
         )
 
-    sns.heatmap(data=cm_df, annot=annot, cbar=cbar, cmap=cmap, fmt=fmt, annot_kws={'size': annot_size})
+    sns.heatmap(
+        data=cm_df,
+        annot=annot,
+        cbar=cbar,
+        cmap=cmap,
+        fmt=fmt,
+        annot_kws={'size': annot_size},
+        vmin=0,
+        vmax=1,
+    )
     plt.title('Confusion Matrix', fontsize=18)
     plt.ylabel('True labels', fontsize=14)
     plt.xlabel('Predicted labels', fontsize=14)
